@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA-MOONS Science Consortium</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px; /* space between image and text */
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f4f4f4;
+      border-radius: 10px;
+    }
+
+    .text {
+      flex: 2;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .figure {
+      flex: 1;
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .figure figcaption {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('DSC_4521.jpg'); /* replace with your starfield image */
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.96);
+      max-width: 1100px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding-bottom: 1rem;
+    }
+
+    header {
+background-image: url('DOT.jpg'); /* Add your background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .logo {
+      height: 90px;
+      width: auto;
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      .logo {
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .header-text {
+        margin-bottom: 1rem;
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.05rem;
+    }
+
+    nav {
+      background-color: #004080;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #004080;
+      border-bottom: 2px solid #d3e2f1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+footer {
+  background-color: #003366;  /* dark blue */
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 0 0 0;  /* Match content box bottom rounding */
+}
+
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph (TA-MOONS)</h1>
+          <!-- <p>Collaboration in Astronomy, Instrumentation & Innovation</p> -->
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">About</a>
+        <a href="team.html" class="active">Team</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="publications.html" class="active">Publications</a>
+        <a href="contact.html" class="active">Contact us</a>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>About TA-MOONS</h2>
+        <p>
+          The TA-MOONS project, developed by TIFR and ARIES, is a medium-resolution spectrograph
+          designed for the 3.6-meter Devasthal Optical Telescope (DOT) in Nainital. It can capture spectra
+          of eight stars at once across the optical and near-infrared range (350 nm to 2.5 microns), allowing
+          large-scale studies of young stellar objects, star clusters, and galaxy formation. Proposed
+          installation at DOT’s prime focus, it excels in observing diffuse interstellar bands, OB stars,
+          Herbig-Haro objects, and low-metallicity stars. TA-MOONS also aids in identifying host galaxies
+          of fast radio bursts, gravitational waves, and high-redshift galaxies, filling a crucial gap in global
+          multi-object spectroscopy.
+        </p>
+        <figure class="figure"> 
+          <img src="3.6m_DOT.jpg" alt="3.6 m DOT">
+          <figcaption>3.6m DOT</figcaption>
+        </figure>
+
+        <h2>Specifications</h2>
+        <ul>
+          <li>8 Deployable Slit Robotic Opto-Mechanical Pickup Arms with 2 Degrees of Freedom (DoF).</li>
+          <li>Wavelength range from 0.36 μm to 2.5 μm.</li>
+          <li>Resolution ∼ 2500 in phase 1.</li>
+          <li>Observe ∼ 8 point sources simultaneously across a 12 arcmin Field of View (FoV).</li>
+        </ul>
+
+        <h2>Goals</h2>
+        <ul>
+          <li>100 Young Stellar Objects (YSO) spectrum/night.</li>
+          <li>World’s largest ultra broad band spectroscopy of YSOs.</li>
+          <li>Spectroscopic survey of YSOs, galaxies and star clusters.</li>
+        </ul>
+
+        <h2>Current Status</h2>
+        <ul>
+          <li>Optical design of front optics completed.</li>
+          <li>Optical design of backend spectrograph near completion.</li>
+          <li>Opto-mechanical design ongoing.</li>
+          <li>Preliminary Design Report under preparation.</li>
+
+        </ul>
+
+        <h2> Objectives</h2>
+        <figure class="figure"> 
+          <img src="o1.jpg" alt="3.6 m DOT">
+          <figcaption>Diagram adapted from Dullemond et. al. (2010) showing the region spectroscopically 
+            probed by the proposed TA-MOONS instrument.
+          </figcaption>
+        </figure>
+        <br>
+        <p>Spectroscopic survey of Young Stellar Objects (YSO's), galaxies and star
+clusters. Understanding the accretion physics of
+protoplanetary discs where to study the
+active inner regions of the disc, we have
+to observe in near-infrared or shorter
+wavelengths. Proposing to observe or survey a large
+number of YSOs, using Marton et al.
+(2019) YSO catalog with probability of
+YSO > 90%, J mag < 14. (To achieve
+reasonable S/N on a 3.5 m telescope at
+R~2500 ) and DEC > -30 deg (Observable
+declination from DOT).</p>
+          <br>
+          <figure class="figure"> 
+          <img src="o2.jpg" alt="3.6 m DOT">
+          <figcaption>The diagram shows the timeline of TA-MOONS instrument as well as the YSO survey in the context of
+ other major surveys. By spring 2027 SPHEREx survey will provide low resolution infrared to mid infrared spectrum
+ of all objects in the sky. This will open up a pandora of scientifically exciting YSO sources, and immensely help in
+ finalizing our target sources for the Survey. Our survey is well-placed in time to be the fastest targeted survey
+ instrument for the follow-ups. It is also early enough to have further follow-ups of interesting targets with JWST
+ before its End of life starts in 2032.
+          </figcaption>
+        </figure>
+        <br>
+        <figure class="figure"> 
+          <img src="o3.jpg" alt="3.6 m DOT">
+          <figcaption>Figure shows the simultaneous wavelength coverage of TA-MOONS instrument via its optical and
+ near-infrared arm. The spectrum shown is a highly accreting protoplanetary disc system (FU Ori) observed using
+ VLT/XShooter instrument, which currently has the largest simultaneous wavelength coverage capability.
+ VLT/XShooter only has single object capability. The x-axis is shown in log wavelength scale, since log of wavelength
+ is proportional to the information content in any spectrum.
+          </figcaption>
+        </figure>
+
+
+
+
+
+
+      </section>
+    </main>
+
+    <div class="content-box">
+  <footer>
+    <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+  </footer>
+</div>
+  </div>
+</body>
+</html>

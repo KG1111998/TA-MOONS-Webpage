@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA-MOONS Science Consortium</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('DSC_4521.jpg'); /* replace with your starfield image */
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+
+
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.96);
+      max-width: 1100px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding-bottom: 1rem;
+    }
+
+    header {
+background-image: url('DOT.jpg'); /* Add your background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+   
+    .logo {
+      height: 90px;
+      width: auto;
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      .logo {
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .header-text {
+        margin-bottom: 1rem;
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.05rem;
+    }
+
+    nav {
+      background-color: #004080;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #004080;
+      border-bottom: 2px solid #d3e2f1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+
+
+/* Footer inside the box */
+footer {
+  background-color: #003366;  /* dark blue */
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 0 0 0;  /* Match content box bottom rounding */
+}
+
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph (TA-MOONS)</h1>
+          <!-- <p>Collaboration in Astronomy, Instrumentation & Innovation</p> -->
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">About</a>
+        <a href="team.html" class="active">Team</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="publications.html" class="active">Publications</a>
+        <a href="contact.html" class="active">Contact us</a>
+    </nav>
+ 
+    <main style="line-height: 1.8;">
+
+      <section id="members">
+        <h2>TA-MOONS Team</h2>
+        <p><b>TIFR</b> 
+            <hr>
+            Joe Ninan (PI), Reader <br>
+            D. K. Ojha (Co-I), Senior Professor <br>
+            B.Mookerjea, Professor <br>
+            M.Puravankara, Professor <br>
+            S.Tendulkar, Reader <br>
+            Shadab Alam, Reader <br>
+            Satheesha Poojary, Engineer(Optics) <br>
+            Harshit Shah, Engineer (Mechanical) <br>
+            Savio D'Costa, Engineer(Electronics) <br>
+        </p>
+        <hr>
+            <p><b>ARIES</b>
+            <hr>
+            Saurabh (PI), Scientist F <br>
+            Neelam Panwar (Co-I), Scientist-D <br>
+            Krishna Reeddy, Engineer D (Optics) <br>
+            Nandish Kumar, Engineer D (Mecanical) <br>
+            Mukesh Kumar, Engineer D (Electronics) <br>
+            Sanjit Sahu, Engineer E (Computer) <br>
+            Mohit Joshi, Engineer E (Computer) <br>
+            Kartik Gokhe, int. MTech-PhD Student <br>
+        </p>
+      </section>
+
+    </main>
+
+    <div class="content-box">
+  <footer>
+    <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+  </footer>
+</div>
+  </div>
+</body>
+</html>

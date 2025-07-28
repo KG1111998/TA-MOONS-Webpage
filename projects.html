@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA-MOONS Science Consortium</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px; /* space between image and text */
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    .text {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .figure {
+      flex: 2;
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .figure figcaption {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('DSC_4521.jpg'); /* replace with your starfield image */
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.96);
+      max-width: 1100px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding-bottom: 1rem;
+    }
+
+    header {
+background-image: url('DOT.jpg'); /* Add your background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .logo {
+      height: 90px;
+      width: auto;
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      .logo {
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .header-text {
+        margin-bottom: 1rem;
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.05rem;
+    }
+
+    nav {
+      background-color: #004080;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #004080;
+      border-bottom: 2px solid #d3e2f1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+footer {
+  background-color: #003366;  /* dark blue */
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 0 0 0;  /* Match content box bottom rounding */
+}
+
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph (TA-MOONS)</h1>
+          <!-- <p>Collaboration in Astronomy, Instrumentation & Innovation</p> -->
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">About</a>
+        <a href="team.html" class="active">Team</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="publications.html" class="active">Publications</a>
+        <a href="contact.html" class="active">Contact us</a>
+    </nav>
+
+    <main>
+
+      <section id="projects">
+        <h2>Front Optics</h2>
+        
+      
+        <div class="container">
+            <div class="text">
+            <p>
+                The TA-MOONS will be installed at the prime focus of the 3.6-meter Devasthal Optical Telescope, 
+located at Nainital, Uttarakhand, India. The altitude of the location is about ~2424 meters amsl. The 
+median seeing at the site is 1.1 arcsec. The telescope focal plane is first made telecentric and 
+achromatic for the entire FoV of diameter 12 arcmin, using a triplet lens. 
+            </p>
+            </div>
+
+            <figure class="figure">
+            <img src="f1.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: Figure shows our current achromatic lens design (133 mm N-FK58, 121 mm
+ N-PK52A, 125 mm CAF2), which makes the telescope focal plane flat, as well
+ as telecentric. </figcaption>
+            </figure>
+        </div>
+    
+        <div class="container">
+            <figure class="figure">
+            <img src="f2.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: Zemax layout of one arm of the front optics. </figcaption>
+            </figure>
+            <div class="text">
+            <p>
+            The pickup mirror (1-3) and the trombone (4) are on the same linear stage, providing the linear 
+            motion (r) while keeping the optical path length constant. The entire linear stage assembly rotates at the θ axis. 
+            A rotatable K mirror downstream is controlled by an independent motor for selecting the orientation of the field on the spectrograph slit. 
+            All the optics (9-13) below the dashed line are fixed and inside theradiation shield at cryo temperature.
+            </p>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="text">
+            <p>
+            The other end of 8-arms front optics re-images
+on to a compact staggered slit (of length ~8.7
+mm) input to the two-arm spectrometer, viz.
+Visible and NIR arm, both wavebands are
+separated by a dichroic mirror next to the
+staggered slit.
+            </p>
+            </div>
+
+            <figure class="figure">
+            <img src="f3.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: This figure shows how all the eight arms of the front optics are arranged to reimage 8 
+arbitrary fields into one fixed staggered slit in the input focal plane of the spectrograph. On the right, 
+it shows a close up view of the staggered slit formed by eight arms.  </figcaption>
+            </figure>
+        </div>
+    
+        
+        <div class="container">
+            <figure class="figure">
+            <img src="f4.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: Zemax Layout of Probe Viewer/Calibration Optics. Both the beam splitter and the mirror 
+are retractable. The Calibration source arm is shown downward for illustration purposes. In the 
+actual design, its orientation is perpendicular to the plane of the diagram. </figcaption>
+            </figure>
+            <div class="text">
+            <p>
+            For precise closed loop positioning of pickup
+arms, probe viewer camera optics is designed. This camera images the entire sky field as well
+as probe positions simultaneously. The same optics will be used for wavelength
+calibration by using a calibration source insert.
+            </p>
+            </div>
+        </div>
+    
+    
+
+
+
+
+
+
+        <h2>Mechanics</h2>
+        <div class="container">
+            <div class="text">
+            <p>
+            The translation stage uses one stepper motor to drive two ball screws with different pitches. 
+            This moves the pick-up mirror and optical trombone simultaneously but at different rates, keeping the optical path length constant. 
+            The rotation stage, supporting each arm, has a ±22.5-degree range of motion. Both stages are powered by vacuum-compatible harmonic drive motors located outside the cryostat, 
+            connected via ferrofluidic feedthroughs to maintain vacuum integrity. These motors were selected for their high gear ratio and low backlash.
+            </p>
+            </div>
+
+            <figure class="figure">
+            <img src="m1.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: This figure shows how all the eight arms of the front optics are arranged to reimage 8 
+arbitrary fields into one fixed staggered slit in the input focal plane of the spectrograph. On the right, 
+it shows a close up view of the staggered slit formed by eight arms.  </figcaption>
+            </figure>
+        </div>
+
+        <div class="container">
+            <figure class="figure">
+            <img src="m2.jpg" alt="TA-MOONS Spectrograph">
+            <figcaption>Figure: All 8 pickup arms deployed over the entire FoV. 
+The 12 arc-min FoV is shown by the yellow circle. </figcaption>
+            </figure>
+            <div class="text">
+            <p>
+            There will be a total of 8 nos. of pick-up arm systems deployed over the entire field of view to cover the 
+focal plane. Figure-5 shows the overall configuration of all 8 pick-up arm systems. To maximize the patrol 
+field of each arm, we minimized the width of the arms on the front end. The vacuum chamber that houses 
+all the moving parts at ~250K will be separate from the main spectrograph cryo vacuum chamber. This 
+will enable quick access to this compartment in the event of any unanticipated mechanical failure, or 
+vacuum degassing.
+            </p>
+            </div>
+        </div>
+
+
+
+
+
+    
+    
+        </section>
+
+
+    </main>
+
+    <div class="content-box">
+  <footer>
+    <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+  </footer>
+</div>
+  </div>
+</body>
+</html>
