@@ -7,169 +7,7 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    .container {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px; /* space between image and text */
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #f4f4f4;
-      border-radius: 10px;
-    }
-
-    .text {
-      flex: 2;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .figure {
-      flex: 1;
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .figure figcaption {
-      font-size: 0.9rem;
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('DSC_4521.jpg'); /* replace with your starfield image */
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-position: center;
-      color: #333;
-    }
-
-    .content-wrapper {
-      background-color: rgba(255, 255, 255, 0.96);
-      max-width: 1100px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding-bottom: 1rem;
-    }
-
-    header {
-background-image: url('DOT.jpg'); /* Add your background image */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-      flex-wrap: wrap;
-    }
-
-    .header-text {
-      flex: 1;
-      text-align: center;
-    }
-
-    .logo {
-      height: 90px;
-      width: auto;
-    }
-
-    @media (max-width: 600px) {
-      .header-container {
-        flex-direction: column;
-      }
-
-      .logo {
-        height: 60px;
-        margin-bottom: 1rem;
-      }
-
-      .header-text {
-        margin-bottom: 1rem;
-      }
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.05rem;
-    }
-
-    nav {
-      background-color: #004080;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1.5rem;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    ul li {
-    text-align: justify;
-  }
-    section {
-      margin-bottom: 3rem;
-    }
-
-    section h2 {
-      color: #004080;
-      border-bottom: 2px solid #d3e2f1;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-footer {
-  background-color: #003366;  /* dark blue */
-  color: white;
-  padding: 5px;
-  text-align: center;
-  border-radius: 0 0 0 0;  /* Match content box bottom rounding */
-}
-
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-      }
-
-      nav a {
-        margin: 0.5rem 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -185,14 +23,30 @@ footer {
       </div>
     </header>
 
-    <nav>
-        <a href="index.html" class="active">About</a>
-        <a href="team.html" class="active">Team</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="consortium.html" class="active">Consortium</a>
-        <a href="publications.html" class="active">Publications</a>
-        <a href="contact.html" class="active">Contact</a>
-    </nav>
+<nav>
+    <div class="dropdown">
+        <button class="dropbtn">Home</button>
+        <div class="dropdown-content">
+            <a href="index.html#about">About TA-MOONS</a>
+            <a href="index.html#Objectives">Objectives</a>
+            <a href="index.html#Specifications">Specifications</a>
+            <a href="index.html#Goals">Goals</a>
+            <a href="index.html#Current Status">Current Status</a>
+        </div>
+    </div>
+    <a href="team.html">Team</a>
+    <div class="dropdown">
+        <button class="dropbtn">Projects</button>
+        <div class="dropdown-content">
+            <a href="projects.html#FrontOptics">Front Optics</a>
+            <a href="projects.html#Mechanics">Mechanics</a>
+        </div>
+    </div>
+    <a href="consortium.html">Consortium</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
 
     <main>
       <section id="about">
