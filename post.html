@@ -6,6 +6,7 @@
   <title>TA-MOONS Science Consortium</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- marked.js for Markdown to HTML conversion -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -29,7 +30,6 @@
                 <a href="index.html#Objectives">Objectives</a>
                 <a href="index.html#Specifications">Specifications</a>
                 <a href="index.html#Goals">Goals</a>
-                <a href="index.html#Targets">Targets for the Survey</a>
                 <a href="index.html#Current Status">Current Status</a>
             </div>
         </div>
@@ -42,16 +42,16 @@
             </div>
         </div>
         <a href="blog.html">Blog</a>
+        <a href="consortium.html">Consortium</a>
         <a href="publications.html">Publications</a>
-        <a href="gallery.html">Gallery</a>
-
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <main>
       <div class="post-content">
-        </div>
+        <!-- Markdown content will be rendered here -->
+      </div>
       <a href="blog.html" class="back-link">&larr; Back to all posts</a>
     </main>
 
@@ -68,10 +68,18 @@
       const postFile = params.get('file');
 
       if (postFile) {
-        fetch(`posts/${postFile}.md`)
+        const postPath = `blog-posts/${postFile}.md`;
+        
+        // Log the exact path we are trying to fetch
+        console.log('Attempting to fetch post from:', postPath);
+
+        fetch(postPath)
           .then(response => {
+            console.log('Fetch response status:', response.status);
             if (!response.ok) {
-              throw new Error('Post not found');
+              // Log the full URL that failed
+              console.error('Failed to fetch:', response.url);
+              throw new Error(`Network response was not ok. Status: ${response.status}`);
             }
             return response.text();
           })
@@ -81,12 +89,11 @@
             document.querySelector('.post-content').innerHTML = marked.parse(content);
           })
           .catch(error => {
-            console.error('Error fetching post:', error);
-            document.querySelector('.post-content').innerHTML = `<h2>Post not found</h2><p>Sorry, the post you are looking for does not exist.</p>`;
+            console.error('Error fetching or parsing post:', error);
+            document.querySelector('.post-content').innerHTML = `<h2>Post Not Found</h2><p>Sorry, the post you are looking for does not exist. Please check the URL or go back to the blog list.</p><p><small>Debug Info: Check the browser console (F12) for error details.</small></p>`;
           });
       }
     });
   </script>
 </body>
-
 </html>
