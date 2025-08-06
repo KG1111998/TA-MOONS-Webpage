@@ -68,7 +68,7 @@
       const postFile = params.get('file');
 
       if (postFile) {
-        fetch(`_posts/${postFile}.md`)
+        fetch(`posts/${postFile}.md`)
           .then(response => {
             if (!response.ok) {
               throw new Error('Post not found');
@@ -88,4 +88,5 @@
     });
   </script>
 </body>
+
 </html>
