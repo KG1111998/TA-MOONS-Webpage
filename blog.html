@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - TA-MOONS Science Consortium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph (TA-MOONS)</h1>
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+            <div class="dropdown-content">
+                <a href="index.html#about">About TA-MOONS</a>
+                <a href="index.html#recent-posts">Recent Posts</a>
+                <a href="index.html#Objectives">Objectives</a>
+                <a href="index.html#Specifications">Specifications</a>
+                <a href="index.html#Goals">Goals</a>
+                <a href="index.html#Targets">Targets for the Survey</a>
+                <a href="index.html#Current Status">Current Status</a>
+            </div>
+        </div>
+        <a href="team.html">Team</a>
+        <div class="dropdown">
+            <button class="dropbtn">Projects</button>
+            <div class="dropdown-content">
+                <a href="projects.html#FrontOptics">Front Optics</a>
+                <a href="projects.html#Mechanics">Mechanics</a>
+            </div>
+        </div>
+        <a href="blog.html">Blog</a>
+        <a href="publications.html">Publications</a>
+        <a href="gallery.html">Gallery</a>
+
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <section id="blog-list">
+        <h2>Blog Posts</h2>
+        <div id="posts-container">
+          </div>
+      </section>
+    </main>
+
+    <div class="content-box">
+      <footer>
+        <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('posts.json')
+        .then(response => response.json())
+        .then(posts => {
+          const postsContainer = document.getElementById('posts-container');
+          posts.forEach(post => {
+            // Only list posts that point to post.html
+            if (post.url.startsWith('post.html')) {
+              const postElement = document.createElement('article');
+              postElement.classList.add('post');
+
+              const postTitle = document.createElement('h3');
+              const postLink = document.createElement('a');
+              postLink.href = post.url;
+              postLink.textContent = post.title;
+              postTitle.appendChild(postLink);
+
+              const postDate = document.createElement('p');
+              postDate.classList.add('post-date');
+              postDate.textContent = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+              const postSummary = document.createElement('p');
+              postSummary.textContent = post.summary;
+
+              postElement.appendChild(postTitle);
+              postElement.appendChild(postDate);
+              postElement.appendChild(postSummary);
+
+              postsContainer.appendChild(postElement);
+            }
+          });
+        })
+        .catch(error => console.error('Error loading posts:', error));
+    });
+  </script>
+</body>
+</html>

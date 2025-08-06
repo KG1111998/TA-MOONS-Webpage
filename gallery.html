@@ -1,0 +1,109 @@
+---
+layout: default
+title: Gallery
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - TA-MOONS Science Consortium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph (TA-MOONS)</h1>
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+            <div class="dropdown-content">
+                <a href="index.html#about">About TA-MOONS</a>
+                <a href="index.html#recent-posts">Recent Posts</a>
+                <a href="index.html#Objectives">Objectives</a>
+                <a href="index.html#Specifications">Specifications</a>
+                <a href="index.html#Goals">Goals</a>
+                <a href="index.html#Targets">Targets for the Survey</a>
+                <a href="index.html#Current Status">Current Status</a>
+            </div>
+        </div>
+        <a href="team.html">Team</a>
+        <div class="dropdown">
+            <button class="dropbtn">Projects</button>
+            <div class="dropdown-content">
+                <a href="projects.html#FrontOptics">Front Optics</a>
+                <a href="projects.html#Mechanics">Mechanics</a>
+            </div>
+        </div>
+        <a href="blog.html">Blog</a>
+        <a href="publications.html">Publications</a>
+        <a href="gallery.html">Gallery</a>
+
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main>
+
+<h2 style="text-align: center; color: #004080;"> Gallery</h2>
+
+<div class="gallery-container">
+
+   <div class="gallery-slide">
+    <img src="gallery/TA-MOONS facility poster.png" alt="Image 3">
+    <div class="caption">TA-MOONS facility poster</div>
+  </div>
+
+  <div class="gallery-slide">
+    <img src="gallery/TA_MOONS_FrontOptics.png" alt="Image 1">
+    <div class="caption">TA-MOONS Front Optics with Telecentric Focal Plane Arrangement</div>
+  </div>
+
+  <div class="gallery-slide">
+    <img src="gallery/Screenshot 2025-08-06 153136.png" alt="Image 2">
+    <div class="caption">On the left for clarity shows the front optics design with just two opposite arms. The figure on the right
+ shows the Zemax model of all the eight arms arranged in a circle around the instrument axis. The zoom-in of the slit
+ mirror arrays which shape the linear slit are shown as insets in the respective diagrams above.</div>
+  </div>
+
+  <div class="gallery-slide">
+    <img src="gallery/Screenshot 2025-08-06 153227.png" alt="Image 3">
+    <div class="caption">Shows the top view of the tiny 45o slit mirror array. The side view is shown in the bottom right figure.</div>
+  </div>
+
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+</div>
+<div class="content-box">
+  <footer>
+    <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+  </footer>
+</div>
+</main>
+<script>
+let slideIndex = 0;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+  let slides = document.getElementsByClassName("gallery-slide");
+  if (n >= slides.length) { slideIndex = 0 }
+  if (n < 0) { slideIndex = slides.length - 1 }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+</script>

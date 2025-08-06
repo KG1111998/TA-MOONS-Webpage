@@ -1,4 +1,77 @@
+/* --- Add these new styles to your existing style.css file --- */
 
+/* Main Page Layout */
+.page-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows sidebar to wrap to the next line on small screens */
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.main-content {
+    flex: 3; /* Main content takes up 3 parts of the space */
+    min-width: 300px; /* Prevents content from getting too squished */
+}
+
+.sidebar {
+    flex: 1; /* Sidebar takes up 1 part of the space */
+    min-width: 280px;
+}
+
+/* Sidebar Widget Styling */
+.widget {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    color: #004080;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #d3e2f1;
+}
+
+.widget ul {
+    list-style-type: '» '; /* Using a chevron-like bullet */
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.widget ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.widget ul li a {
+    text-decoration: none;
+    color: #0056b3;
+    font-weight: 500;
+}
+
+.widget ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Design for smaller screens */
+@media (max-width: 992px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    /* Make main content and sidebar take full width on smaller screens */
+    .main-content, .sidebar {
+        flex: 1 1 100%;
+    }
+}
+
+
+/* --- Existing styles below --- */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -125,10 +198,18 @@ header {
   }
 }
 
-header h1 {
+/* header h1 {
   margin: 0;
   font-size: 2.05rem;
+} */
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
+
 
 /* Navigation Bar Styles */
 nav {
@@ -231,3 +312,168 @@ footer {
   border-radius: 0 0 0 0;
 }
 
+/* Styling for blog post content */
+.post-content {
+  line-height: 1.8;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+  color: #004080;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content ul, .post-content ol {
+  padding-left: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #004080;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Add these new styles for the FAQ page --- */
+
+.faq-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #d3e2f1;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #004080;
+    padding: 1rem 0;
+    cursor: pointer;
+    position: relative;
+    list-style: none; /* Remove default marker */
+}
+
+.faq-question::-webkit-details-marker {
+    display: none; /* Hide the default triangle in Chrome/Safari */
+}
+
+/* Custom open/close icon */
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #0056b3;
+    transition: transform 0.2s ease-in-out;
+}
+
+.faq-item[open] .faq-question::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1rem 1.5rem 1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+.faq-answer a {
+    color: #0056b3;
+    font-weight: 500;
+}
+
+/* gallery style */
+.gallery-container {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.gallery-slide {
+  display: none;
+  text-align: center;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.caption {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.search-bar {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+#searchInput {
+  padding: 0.5rem;
+  width: 60%;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
