@@ -10,8 +10,8 @@ date: "2025-08-05"
 The purpose of this Science Consortium is to optimize scientific outcomes and design the Young Stellar Object (YSO) survey, along with addressing other major scientific objectives of the TA-MOONS project. 
 
 ### Membership Criteria 
-+ Membership is open to anyone who possesses at least one specific science proposal utilizing TA-MOONS and has the resources to complete the project promptly once data becomes available.
-+ We are a small, professional community committed to collegial interaction to produce the best scientific results. All members are required to sign and adhere to the TA-MOONS Code of Ethics and the Honour System (Detailed below). 
+* Membership is open to anyone who possesses at least one specific science proposal utilizing TA-MOONS and has the resources to complete the project promptly once data becomes available.
+* We are a small, professional community committed to collegial interaction to produce the best scientific results. All members are required to sign and adhere to the TA-MOONS Code of Ethics and the Honour System (Detailed below). 
 
 ### Advantages of Joining the Consortium
 
@@ -75,6 +75,7 @@ Instrument Architect Status : Individuals in academic careers who have contribut
 
 ### Epilogue 
 The TA-MOONS Science Consortium seeks to foster an inclusive and productive environment for astronomical research. By establishing a clear framework for collaboration, expectations, and ethical conduct, we hope to optimize the scientific output of our collective efforts. We invite dedicated researchers to join us in this endeavour to unlock the mysteries of our Universe.
+
 
 
 
