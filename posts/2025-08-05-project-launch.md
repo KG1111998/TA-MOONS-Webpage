@@ -37,11 +37,8 @@ We invite researchers and students to join our science consortium and contribute
 
 Feel free to contact us through the [Contact](contact.html) section of the website.
 
-> Check out our institute website:
- * [TIFR](https://www.tifr.res.in/)
- * [ARIES](https://aries.res.in/aries-0)
-
 ![DOT image](Picture2.jpg "3.6 m DOT")
+
 
 
 
