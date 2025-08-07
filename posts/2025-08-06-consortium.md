@@ -6,14 +6,20 @@ date: "2025-08-05"
 
 # Welcome to TA-MOONS Science Consortium
 
+
 ### Purpose of the Science Consortium
+________________________________________________________
+
 The purpose of this Science Consortium is to optimize scientific outcomes and design the Young Stellar Object (YSO) survey, along with addressing other major scientific objectives of the TA-MOONS project. 
 
 ### Membership Criteria 
+______________________________________________________________________________________
+
 * Membership is open to anyone who possesses at least one specific science proposal utilizing TA-MOONS and has the resources to complete the project promptly once data becomes available.
 * We are a small, professional community committed to collegial interaction to produce the best scientific results. All members are required to sign and adhere to the TA-MOONS Code of Ethics and the Honour System (Detailed below). 
 
 ### Advantages of Joining the Consortium
+____________________________________________________________________________________________________________________________________________________________________________________________
 
 1. Receive assistance and feedback from the instrument team to optimize your observations. 
 2. Collaborate closely with the team to ensure that instrument designs align with your scientific objectives. 
@@ -21,6 +27,8 @@ The purpose of this Science Consortium is to optimize scientific outcomes and de
 4. The instrument team will perform quality checks on the collected data. 
 
 ### Joining Procedure 
+_______________________________________________________________________________________________
+
 To optimize the survey, we require a clearly defined list of science projects rather than general areas of research. Thus, the procedure to join the TA-MOONS Science Consortium involves the submission of a concise internal research proposal limited to a single page (or max two pages). 
 The Principal Investigator (PI) of the proposal will serve as the primary contact and will become an official member of the science consortium. 
 
@@ -36,6 +44,8 @@ To maintain transparency, all proposals within the science consortium will be ac
 The PI of each proposal must also explicitly agree to the Honour System outlined below. 
 
 ### Honour System 
+_____________________________________________________________________________________________________________
+
 1. Members will have read-only access to all proposals within the consortium, which are proprietary to individual PIs. All members agree to maintain the confidentiality of these proposals. 
 2. Members will have read-only access to all data collected by the science consortium, but must restrict usage of the data to their specific proposed science. If the same data is shared among multiple proposal PIs, coordination is required during analysis and publication to avoid overlapping results. 
 3. If changes to the project scope are necessary after the proposal’s submission, the following steps must be taken: 
@@ -49,13 +59,17 @@ Throughout the publication process, the following conditions must be met:
 2. All instrument architects (as defined in Section IA) should be invited to contribute comments on the work. If they provide input, they should be offered co-authorship. The manuscript must be circulated to all signed members at least 10 days prior to submission, allowing ample time for review and feedback. 
 
 ### Responsibilities 
+__________________________________________________________________________________________________________________
+
 1. Formulate innovative scientific inquiries that can be addressed using TA-MOONS observations. 
 2. Provide input to the instrument team, particularly when design compromises are required, ensuring that these do not significantly impact the primary scientific objectives. 
 3. During the commissioning phase, certify whether the instrument meets design goals and verify the feasibility of all consortium proposals. 
 4. Once data becomes available, promptly analyze and publish results for which they are responsible. 
 5. As a consortium, we commit to protecting the research efforts of early career students, postdoctoral researchers, and individuals from historically marginalized communities and underrepresented minorities. 
 
-### Observation Plan 
+### Observation Plan
+____________________________________________________________________________________________________________________
+
 1. The allocation of telescope time is solely at the discretion of the DOT Time Allocation Committee (DTAC). Consequently, the science consortium will not engage in proposal evaluations. 
 2. All proposals submitted by the science consortium must be based on the proposals originally submitted upon joining the consortium. 
 To maintain a minimum standard of quality, the consortium will provide feedback and suggestions to the proposal Principal Investigators (PIs), provided that these are shared at least 10 days prior to the DOT proposal deadline. 
@@ -65,16 +79,23 @@ For transparency and our records concerning time allocated to each science conso
 5. An experienced project individual will manage the Science Consortium-approved Queue and ensure that observations are conducted in the most effective manner. 
 
 ### Grievance Address Mechanism 
+__________________________________________________________________________________________________________________________
+
 The consortium will appoint two ombudspersons who are not collaborators. Any member may approach one or both of these ombudspersons with grievances. The ombudsperson will establish an appropriate subcommittee to evaluate the issue and determine the necessary course of action. All communications with ombudspersons regarding grievances will remain confidential by default, and can only be disclosed with the mutual consent of the involved individual and the ombudsperson, should they deem it necessary. 
 
 ### Code of Ethics 
+__________________________________________________________________________________________________________________________________
+
 We adhere to the Code of Ethics established by the American Astronomy Society: https://aas.org/policies/ethics#statement 
 
 Instrument Architect Status : Individuals in academic careers who have contributed to the development of the TA-MOONS instrument (either hardware or software) and or have operated the instrument for more than 2 FTE will be recognized as instrument architects. (*FTE = Full Time Equivalent)
 
 
 ### Epilogue 
+_____________________________________________________________________________________________________________________________
+
 The TA-MOONS Science Consortium seeks to foster an inclusive and productive environment for astronomical research. By establishing a clear framework for collaboration, expectations, and ethical conduct, we hope to optimize the scientific output of our collective efforts. We invite dedicated researchers to join us in this endeavour to unlock the mysteries of our Universe.
+
 
 
 
