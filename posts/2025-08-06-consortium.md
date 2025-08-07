@@ -1,8 +1,4 @@
----
-title: "Welcome to the TA-MOONS Consortium"
-author: "TA-MOONS Team"
-date: "2025-08-05"
----
+# Welcome to TA-MOONS Science Consortium
 
 ### Purpose of the Science Consortium
 The purpose of this Science Consortium is to optimize scientific outcomes and design the Young Stellar Object (YSO) survey, along with addressing other major scientific objectives of the TA-MOONS project. 
@@ -73,3 +69,4 @@ Instrument Architect Status : Individuals in academic careers who have contribut
 
 ### Epilogue 
 The TA-MOONS Science Consortium seeks to foster an inclusive and productive environment for astronomical research. By establishing a clear framework for collaboration, expectations, and ethical conduct, we hope to optimize the scientific output of our collective efforts. We invite dedicated researchers to join us in this endeavour to unlock the mysteries of our Universe.
+
