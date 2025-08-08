@@ -216,18 +216,8 @@
         .catch(error => console.error('Error loading posts:', error));
     });
   </script>
-<script>
-function searchFunction() {
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toLowerCase();
-  const sections = document.querySelectorAll("main section");
 
-  sections.forEach(section => {
-    const text = section.textContent.toLowerCase();
-    section.style.display = text.includes(filter) ? "block" : "none";
-  });
-}
-</script>
 
 </body>
 </html>
+
