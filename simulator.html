@@ -195,6 +195,7 @@
     # --- Main function to connect HTML inputs to Python logic ---
 
     def run_and_plot(*args, **kwargs):
+        print("--- Button clicked! The run_and_plot function is starting. ---")
         plot_output_div = document.getElementById("plot-output")
         plot_output_div.innerHTML = "<p>Calculating... please wait.</p>"
         
@@ -229,6 +230,7 @@
   </py-script>
 </body>
 </html>
+
 
 
 
