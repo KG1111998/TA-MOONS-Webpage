@@ -193,26 +193,43 @@
         return wl_nm, snr
 
     # --- Main function to connect HTML inputs to Python logic ---
-    # --- Main function to connect HTML inputs to Python logic ---
-    def run_and_plot(*args, **kwargs):
-        # This is a new version for testing.
-        print("--- run_and_plot function started (ISOLATION TEST) ---")
-        plot_output_div = document.getElementById("plot-output")
-        plot_output_div.innerHTML = "<p>Running isolation test...</p>"
-        
-        # We will only read one value and print it to the console to prove the script is running.
-        try:
-            star_temp = float(document.getElementById("star_temp").value)
-            print(f"TEST SUCCESSFUL: Star Temp value read as {star_temp}")
-            plot_output_div.innerHTML = "<p>Test complete. The plot is disabled. Check the developer console (F12) for messages.</p>"
-        except Exception as e:
-            print(f"An error occurred during the test: {e}")
-            plot_output_div.innerHTML = f"<p style='color:red;'>An error occurred during the isolation test: {e}</p>"
 
-        # --- THE REST OF THE ORIGINAL CODE IS INTENTIONALLY REMOVED FOR THIS TEST ---
+    def run_and_plot(*args, **kwargs):
+        plot_output_div = document.getElementById("plot-output")
+        plot_output_div.innerHTML = "<p>Calculating... please wait.</p>"
+        
+        star_temp = float(document.getElementById("star_temp").value)
+        star_band = document.getElementById("star_band").value
+        star_mag = float(document.getElementById("star_mag").value)
+        exp_time = float(document.getElementById("exp_time").value)
+
+        try:
+            tp_data_opt = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt")
+            tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
+        except Exception as e:
+            # This line uses single quotes for the style attribute, which is correct.
+            plot_output_div.innerHTML = f"<p style='color:red;'>Error loading data files: {e}. Make sure they are in the same folder as this HTML file.</p>"
+            return
+        
+        wl_opt, snr_opt = compute_snr(tp_data_opt[:,0], tp_data_opt[:,1], star_temp, star_band, star_mag, exp_time)
+        wl_nir, snr_nir = compute_snr(tp_data_nir[:,0], tp_data_nir[:,1], star_temp, star_band, star_mag, exp_time)
+        
+        fig, ax = plt.subplots(figsize=(10, 6))
+        ax.plot(wl_opt, snr_opt, label="Optical Arm", color="tab:blue")
+        ax.plot(wl_nir, snr_nir, label="NIR Arm", color="tab:red")
+        ax.set_xlabel("Wavelength (nm)")
+        ax.set_ylabel("SNR per resolution element")
+        ax.set_title(f"T={star_temp}K, {star_band}-band mag={star_mag}, t={exp_time}s")
+        ax.grid(True, alpha=0.3)
+        ax.legend()
+        ax.set_ylim(bottom=0)
+        
+        plot_output_div.innerHTML = ""
+        pyscript.write(plot_output_div, fig)
   </py-script>
 </body>
 </html>
+
 
 
 
