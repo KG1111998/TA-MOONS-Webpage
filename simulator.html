@@ -208,7 +208,7 @@
             tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
         except Exception as e:
             # This line uses single quotes for the style attribute, which is correct.
-            plot_output_div.innerHTML = f"<p style='color:red;'>Error loading data files. Make sure they are in the same folder as this HTML file.</p>"
+            plot_output_div.innerHTML = f"<p>Error loading data files. Make sure they are in the same folder as this HTML file.</p>"
             return
         
         wl_opt, snr_opt = compute_snr(tp_data_opt[:,0], tp_data_opt[:,1], star_temp, star_band, star_mag, exp_time)
@@ -229,6 +229,7 @@
   </py-script>
 </body>
 </html>
+
 
 
 
