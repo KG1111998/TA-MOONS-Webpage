@@ -477,3 +477,34 @@ footer {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+        .input-grid { 
+            display: grid; 
+            grid-template-columns: auto 1fr; 
+            gap: 1em; 
+            align-items: center; 
+            max-width: 500px; 
+            margin-top: 1.5em;
+        }
+        .input-grid label { 
+            font-weight: bold; 
+            text-align: right;
+        }
+        .input-grid input, .input-grid select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        #run-button { 
+            font-size: 1.1em; 
+            padding: 0.5em 1em; 
+            margin-top: 1.5em; 
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #run-button:hover {
+            background-color: #555;
+        }

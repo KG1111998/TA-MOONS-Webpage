@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TA-MOONS Science Consortium</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
@@ -44,6 +43,7 @@
                 <a href="projects.html#Mechanics">Mechanics</a>
             </div>
         </div>
+        <a href="simulator.html">Simulator</a>
         <a href="blog.html">Blog</a>
         <a href="publications.html">Publications</a>
         <a href="gallery.html">Gallery</a>
@@ -51,10 +51,8 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- This main tag now acts as a flex container for the two-column layout -->
     <main class="page-container">
 
-      <!-- Main content area on the left -->
       <div class="main-content">
         <section id="about">
           <h2>About TA-MOONS</h2>
@@ -171,17 +169,18 @@
         </section>
       </div>
       
-      <!-- Sidebar on the right -->
       <aside class="sidebar">
         <div class="widget">
           <h3 class="widget-title">Recent Posts</h3>
           <div id="posts-sidebar-container">
           </div>
         </div>
+        <div class="widget">
+            <h3 class="widget-title">Project Updates</h3>
+            <div id="updates-sidebar-container">
+            </div>
+        </div>
        </aside>
-
-
-
 
     </main>
 
@@ -192,9 +191,9 @@
     </div>
   </div>
 
-  <!-- This script now populates the sidebar -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // Fetch and display recent posts
       fetch('posts.json')
         .then(response => response.json())
         .then(posts => {
@@ -214,10 +213,29 @@
           postsContainer.appendChild(postList);
         })
         .catch(error => console.error('Error loading posts:', error));
+
+      // Fetch and display project updates
+      fetch('updates.json')
+        .then(response => response.json())
+        .then(updates => {
+          const updatesContainer = document.getElementById('updates-sidebar-container');
+          const updatesList = document.createElement('ul');
+          
+          // Display all updates from updates.json
+          updates.forEach(update => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = update.url;
+            link.textContent = update.title;
+            listItem.appendChild(link);
+            updatesList.appendChild(listItem);
+          });
+
+          updatesContainer.appendChild(updatesList);
+        })
+        .catch(error => console.error('Error loading updates:', error));
     });
   </script>
 
-
 </body>
 </html>
-

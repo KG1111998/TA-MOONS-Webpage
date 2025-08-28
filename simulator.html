@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNR Calculator | TA-MOONS Science Consortium</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        .input-grid { 
+            display: grid; 
+            grid-template-columns: auto 1fr; 
+            gap: 1em; 
+            align-items: center; 
+            max-width: 500px; 
+            margin-top: 1.5em;
+        }
+        .input-grid label { 
+            font-weight: bold; 
+            text-align: right;
+        }
+        .input-grid input, .input-grid select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        #run-button { 
+            font-size: 1.1em; 
+            padding: 0.5em 1em; 
+            margin-top: 1.5em; 
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #run-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-container">
+        <img src="tifrlogonew-removebg-preview.png" alt="Left Logo" class="logo left-logo">
+        <div class="header-text">
+          <h1>TIFR-ARIES Multi-Object Optical to Near-Infrared Spectrograph <br>(TA-MOONS)</h1>
+        </div>
+        <img src="aries_logo (2)_0.png" alt="Right Logo" class="logo right-logo">
+      </div>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+            <div class="dropdown-content">
+                <a href="index.html#about">About TA-MOONS</a>
+                <a href="index.html#Objectives">Objectives</a>
+                <a href="index.html#Specifications">Specifications</a>
+                <a href="index.html#Goals">Goals</a>
+                <a href="index.html#Targets">Targets for the Survey</a>
+                <a href="index.html#Current Status">Current Status</a>
+            </div>
+        </div>
+        <a href="team.html">Team</a>
+        <div class="dropdown">
+            <button class="dropbtn">Projects</button>
+            <div class="dropdown-content">
+                <a href="projects.html#FrontOptics">Front Optics</a>
+                <a href="projects.html#Mechanics">Mechanics</a>
+            </div>
+        </div>
+        <a href="simulator.html">Simulator</a>
+        <a href="blog.html">Blog</a>
+        <a href="publications.html">Publications</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="page-container">
+
+      <div class="main-content">
+        <section id="snr-calculator">
+          <h2>Exposure Time & SNR Calculator</h2>
+          <p style="text-align: justify;">
+            This tool allows you to calculate the expected Signal-to-Noise Ratio (SNR) for an astronomical observation with TA-MOONS. Enter the star's physical parameters and the desired exposure time to generate an SNR plot across the instrument's wavelength range. This entire calculation runs directly in your browser using Python.
+          </p>
+
+          <py-config>
+              packages = ["numpy", "matplotlib"]
+              # This tells PyScript to fetch your data files so Python can access them
+              [[fetch]]
+              files = [
+                      "./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt",
+                      "./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt"
+              ]
+          </py-config>
+
+          <div class="input-grid">
+              <label for="star_temp">Star Temperature (K):</label>
+              <input type="number" id="star_temp" value="5000" step="100">
+
+              <label for="star_band"> BAND Filter:</label>
+              <select id="star_band">
+                  <option value="V">V</option>
+                  <option value="R">R</option>
+                  <option value="I">I</option>
+                  <option value="J" selected>J</option>
+                  <option value="H">H</option>
+                  <option value="K">K</option>
+              </select>
+              
+              <label for="star_mag"> Star Magnitude:</label>
+              <input type="number" id="star_mag" value="12.0" step="0.1">
+
+              <label for="exp_time"> Exposure Time (s):</label>
+              <input type="number" id="exp_time" value="1800" step="60">
+          </div>
+
+          <button id="run-button" py-onClick="run_and_plot">Generate SNR Plot</button>
+          
+          <div id="plot-output" style="margin-top: 1.5em;"></div>
+
+        </section>
+      </div>
+
+
+    </main>
+
+    <div class="content-box">
+      <footer>
+        <p>© 2025 TA-MOONS Science Consortium. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+
+  <py-script>
+      import numpy as np
+      import matplotlib.pyplot as plt
+      from js import document
+      from pyodide.ffi import create_proxy
+
+      # --- Constants and Helper Functions ---
+      R = 2700
+      READ_NOISE_E = 7.0
+      D_TELESCOPE_M = 3.6
+      A_TELESCOPE_M2 = np.pi * (D_TELESCOPE_M / 2.0)**2
+      H = 6.626e-34
+      C = 3.0e8
+      K_B = 1.38e-23
+      BAND_ZEROPOINTS = {
+          "V": (550.0, 3.802e-8), "R": (640.0, 2.254e-8), "I": (790.0, 1.225e-8),
+          "J": (1235.0, 3.133e-9), "H": (1662.0, 1.111e-9), "K": (2159.0, 4.288e-10),
+      }
+
+      def planck_photon_radiance(wavelength_m, temp_k):
+          x = (H * C) / (wavelength_m * K_B * temp_k)
+          # Use np.clip to avoid overflow in np.exp(x) for large x
+          x_clipped = np.clip(x, None, 700)
+          radiance = (2 * C / wavelength_m**4) / (np.exp(x_clipped) - 1)
+          return radiance
+
+      def get_star_flux_in_photons(band, mag):
+          lam_nm, f0_w_m2_um = BAND_ZEROPOINTS[band]
+          f0_w_m2_nm = f0_w_m2_um / 1000.0
+          lam_m = lam_nm * 1e-9
+          energy_per_photon = (H * C) / lam_m
+          phi0 = f0_w_m2_nm / energy_per_photon
+          phi_star = phi0 * 10**(-0.4 * mag)
+          return phi_star, lam_nm
+
+      def compute_snr(tp_wavelengths, tp_efficiencies, T_star, band, mag, exp_time):
+          wl_nm = np.linspace(300, 2500, 2000)
+          wl_m = wl_nm * 1e-9
+          star_spectrum_shape = planck_photon_radiance(wl_m, T_star)
+          flux_at_band_wl, band_wl_nm = get_star_flux_in_photons(band, mag)
+          band_wl_m = band_wl_nm * 1e-9
+          planck_val_at_band_wl = planck_photon_radiance(band_wl_m, T_star)
+          star_flux_per_nm = flux_at_band_wl * (star_spectrum_shape / planck_val_at_band_wl)
+          photons_into_telescope = star_flux_per_nm * A_TELESCOPE_M2
+          instrument_efficiency = np.interp(wl_nm, tp_wavelengths, tp_efficiencies)
+          photons_on_detector_per_nm = photons_into_telescope * instrument_efficiency
+          delta_lambda = wl_nm / R
+          photon_rate_per_res_element = photons_on_detector_per_nm * delta_lambda
+          total_star_photons = photon_rate_per_res_element * exp_time
+          photon_noise = np.sqrt(np.maximum(0, total_star_photons))
+          total_noise = np.sqrt(photon_noise**2 + READ_NOISE_E**2)
+          snr = np.zeros_like(total_star_photons)
+          good_indices = total_noise > 0
+          snr[good_indices] = total_star_photons[good_indices] / total_noise[good_indices]
+          return wl_nm, snr
+
+      # --- Main function to connect HTML inputs to Python logic ---
+      def run_and_plot(*args, **kwargs):
+          plot_output_div = document.getElementById("plot-output")
+          plot_output_div.innerHTML = "<p>Calculating... please wait.</p>"
+          
+          # Get values from the HTML input elements
+          star_temp = float(document.getElementById("star_temp").value)
+          star_band = document.getElementById("star_band").value
+          star_mag = float(document.getElementById("star_mag").value)
+          exp_time = float(document.getElementById("exp_time").value)
+
+          # Load throughput data
+          try:
+              tp_data_opt = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt")
+              tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
+          except Exception as e:
+              plot_output_div.innerHTML = f"<p style='color:red;'>Error loading data files: {e}. Make sure they are in the same folder as this HTML file.</p>"
+              return
+          
+          # Compute SNR for both arms
+          wl_opt, snr_opt = compute_snr(tp_data_opt[:,0], tp_data_opt[:,1], star_temp, star_band, star_mag, exp_time)
+          wl_nir, snr_nir = compute_snr(tp_data_nir[:,0], tp_data_nir[:,1], star_temp, star_band, star_mag, exp_time)
+          
+          # Create the plot
+          fig, ax = plt.subplots(figsize=(10, 6))
+          ax.plot(wl_opt, snr_opt, label="Optical Arm", color="tab:blue")
+          ax.plot(wl_nir, snr_nir, label="NIR Arm", color="tab:red")
+          ax.set_xlabel("Wavelength (nm)")
+          ax.set_ylabel("SNR per resolution element")
+          ax.set_title(f"T={star_temp}K, {star_band}-band mag={star_mag}, t={exp_time}s")
+          ax.grid(True, alpha=0.3)
+          ax.legend()
+          ax.set_ylim(bottom=0)
+          
+          # Display the plot in the HTML div
+          plot_output_div.innerHTML = "" # Clear "Calculating..." message
+          pyscript.write(plot_output_div, fig)
+  </py-script>
+
+
+</body>
+</html>
