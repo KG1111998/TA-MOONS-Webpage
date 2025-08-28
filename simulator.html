@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TA-MOONS Science Consortium</title>
+    <title>SNR Calculator | TA-MOONS Science Consortium</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -12,37 +12,11 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
     <style>
-        .input-grid { 
-            display: grid; 
-            grid-template-columns: auto 1fr; 
-            gap: 1em; 
-            align-items: center; 
-            max-width: 500px; 
-            margin-top: 1.5em;
-        }
-        .input-grid label { 
-            font-weight: bold; 
-            text-align: right;
-        }
-        .input-grid input, .input-grid select {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-        }
-        #run-button { 
-            font-size: 1.1em; 
-            padding: 0.5em 1em; 
-            margin-top: 1.5em; 
-            cursor: pointer;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        #run-button:hover {
-            background-color: #555;
-        }
+        .input-grid { display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: center; max-width: 500px; margin-top: 1.5em; }
+        .input-grid label { font-weight: bold; text-align: right; }
+        .input-grid input, .input-grid select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 100%; }
+        #run-button { font-size: 1.1em; padding: 0.5em 1em; margin-top: 1.5em; cursor: pointer; background-color: #333; color: white; border: none; border-radius: 5px; }
+        #run-button:hover { background-color: #555; }
     </style>
 </head>
 
@@ -65,9 +39,6 @@
                 <a href="index.html#about">About TA-MOONS</a>
                 <a href="index.html#Objectives">Objectives</a>
                 <a href="index.html#Specifications">Specifications</a>
-                <a href="index.html#Goals">Goals</a>
-                <a href="index.html#Targets">Targets for the Survey</a>
-                <a href="index.html#Current Status">Current Status</a>
             </div>
         </div>
         <a href="team.html">Team</a>
@@ -124,7 +95,7 @@
               <input type="number" id="exp_time" value="1800" step="60">
           </div>
 
-          <button id="run-button" py-onClick="run_and_plot">Generate SNR Plot</button>
+          <button id="run-button">Generate SNR Plot</button>
           
           <div id="plot-output" style="margin-top: 1.5em;"></div>
         </section>
@@ -142,6 +113,7 @@
     import numpy as np
     import matplotlib.pyplot as plt
     from js import document
+    import pyscript # Import the pyscript library to manage events
 
     # --- Constants and Helper Functions ---
     R = 2700
@@ -193,9 +165,7 @@
         return wl_nm, snr
 
     # --- Main function to connect HTML inputs to Python logic ---
-
     def run_and_plot(*args, **kwargs):
-        print("--- Button clicked! The run_and_plot function is starting. ---")
         plot_output_div = document.getElementById("plot-output")
         plot_output_div.innerHTML = "<p>Calculating... please wait.</p>"
         
@@ -208,8 +178,7 @@
             tp_data_opt = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt")
             tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
         except Exception as e:
-            # This line uses single quotes for the style attribute, which is correct.
-            plot_output_div.innerHTML = f"<p>Error loading data files. Make sure they are in the same folder as this HTML file.</p>"
+            plot_output_div.innerHTML = "<p>Error: Could not load data files. Please ensure they are in the correct folder and refresh the page.</p>"
             return
         
         wl_opt, snr_opt = compute_snr(tp_data_opt[:,0], tp_data_opt[:,1], star_temp, star_band, star_mag, exp_time)
@@ -227,15 +196,11 @@
         
         plot_output_div.innerHTML = ""
         pyscript.write(plot_output_div, fig)
+
+    # --- NEW: Set up the event listener for the button ---
+    # This is the modern, more reliable way to make the button clickable.
+    run_button = document.getElementById("run-button")
+    pyscript.add_event_listener(run_button, "click", run_and_plot)
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
