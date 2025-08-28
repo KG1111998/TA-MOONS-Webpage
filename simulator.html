@@ -203,8 +203,13 @@
         star_mag = float(document.getElementById("star_mag").value)
         exp_time = float(document.getElementById("exp_time").value)
 
-        tp_data_opt = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt")
-        tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
+        try:
+            tp_data_opt = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_OpticalArm.txt")
+            tp_data_nir = np.loadtxt("./NetThroughputSkytoDetector_TAMOONS_NIRArm.txt")
+        except Exception as e:
+            # This line uses single quotes for the style attribute, which is correct.
+            plot_output_div.innerHTML = f"<p style='color:red;'>Error loading data files. Make sure they are in the same folder as this HTML file.</p>"
+            return
         
         wl_opt, snr_opt = compute_snr(tp_data_opt[:,0], tp_data_opt[:,1], star_temp, star_band, star_mag, exp_time)
         wl_nir, snr_nir = compute_snr(tp_data_nir[:,0], tp_data_nir[:,1], star_temp, star_band, star_mag, exp_time)
@@ -224,6 +229,7 @@
   </py-script>
 </body>
 </html>
+
 
 
 
