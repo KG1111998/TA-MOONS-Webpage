@@ -176,7 +176,6 @@
         snr[good_indices] = total_star_photons[good_indices] / total_noise[good_indices]
         return wl_nm, snr
 
-    # --- Main function to connect HTML inputs to Python logic ---
     def run_and_plot(*args, **kwargs):
         plot_output_div = document.getElementById("plot-output")
         plot_output_div.innerHTML = "<p>Calculating... please wait.</p>"
@@ -207,17 +206,15 @@
         ax.set_ylim(bottom=0)
         
         plot_output_div.innerHTML = ""
-        # The 'pyscript' library is not imported, so we must find an alternative to pyscript.write
-        # The standard way to display a plot is to use the 'display' function
         from pyscript import display
         display(fig, target="plot-output")
-
-    # --- NEW: Set up the event listener for the button ---
+      
     run_button = document.getElementById("run-button")
     run_button.addEventListener("click", create_proxy(run_and_plot))
   </script>
 </body>
 </html>
+
 
 
 
